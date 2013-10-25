@@ -1,0 +1,36 @@
+//
+// Prefix header for all source files of the 'AppFramework' target in the 'AppFramework' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+#import "EDColor.h"
+
+#import "DDLog.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+#import "DDFileLogger.h"
+#import "CoreData+MagicalRecord.h"
+
+#endif
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
+
+
+static BOOL OSVersionIsAtLeastiOS6() {
+    return (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_5_1);
+}
