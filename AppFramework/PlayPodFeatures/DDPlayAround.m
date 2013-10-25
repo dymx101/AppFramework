@@ -42,7 +42,7 @@
     
     
     // And then enable colors
-    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    //[[DDTTYLogger sharedInstance] setColorsEnabled:YES];   // XcodeColor becomes bad and can't be using any more on my Mac!
     // Check out default colors:
     // Error : Red
     // Warn  : Orange
@@ -55,13 +55,13 @@
     // Now let's do some customization:
     // Info  : Pink
     
-#if TARGET_OS_IPHONE
-    UIColor *pink = [UIColor colorWithRed:(255/255.0) green:(58/255.0) blue:(159/255.0) alpha:1.0];
-#else
-    NSColor *pink = [NSColor colorWithCalibratedRed:(255/255.0) green:(58/255.0) blue:(159/255.0) alpha:1.0];
-#endif
-    
-    [[DDTTYLogger sharedInstance] setForegroundColor:pink backgroundColor:nil forFlag:LOG_FLAG_INFO];
+//#if TARGET_OS_IPHONE
+//    UIColor *pink = [UIColor colorWithRed:(255/255.0) green:(58/255.0) blue:(159/255.0) alpha:1.0];
+//#else
+//    NSColor *pink = [NSColor colorWithCalibratedRed:(255/255.0) green:(58/255.0) blue:(159/255.0) alpha:1.0];
+//#endif
+//    
+//    [[DDTTYLogger sharedInstance] setForegroundColor:pink backgroundColor:nil forFlag:LOG_FLAG_INFO];
     
     DDLogInfo(@"Warming up printer (post-customization)"); // Pink !
 }

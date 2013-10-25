@@ -14,7 +14,7 @@
 
 #ifndef MR_ENABLE_ACTIVE_RECORD_LOGGING
     #ifdef DEBUG
-        #define MR_ENABLE_ACTIVE_RECORD_LOGGING 1
+        #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
     #else
         #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
     #endif
@@ -23,7 +23,7 @@
 #if MR_ENABLE_ACTIVE_RECORD_LOGGING != 0
       // First, check if we can use Cocoalumberjack for logging
     #ifdef LOG_VERBOSE
-        //extern int ddLogLevel;
+        extern const int ddLogLevel;
         #define MRLog(...)  DDLogVerbose(__VA_ARGS__)
     #else
         #define MRLog(...) NSLog(@"%s(%p) %@", __PRETTY_FUNCTION__, self, [NSString stringWithFormat:__VA_ARGS__])
